@@ -26,7 +26,7 @@ jobs:
           unzip dependency-check-12.1.0-release.zip
 
       - name: Run scan with ODC
-        timeout-minutes: 5
+        #timeout-minutes: 5
         run: |
           dependency-check/bin/dependency-check.sh --project "bitcoin" --scan . --exclude node_modules --exclude .git --failOnCVSS 9 > ODC-report
 
