@@ -25,6 +25,10 @@ jobs:
           wget https://github.com/jeremylong/DependencyCheck/releases/download/v7.2.0/dependency-check-7.2.0-release.zip
           unzip dependency-check-7.2.0-release.zip
 
+      - name: Fix SLF4J Issue
+	run: |
+	  wget wget https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar -P dependency-check/lib
+	
       - name: Run scan with ODC
         run: |
           dependency-check/bin/dependency-check.sh --project "bitcoin" --scan . > ODC-report
